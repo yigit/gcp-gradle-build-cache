@@ -36,3 +36,8 @@ object ApplicationDefaultGcpCredentials: GcpCredentials
  * @param pathToCredentials a file that stores the exported service account credentials.
  */
 class ExportedKeyGcpCredentials(val pathToCredentials: File): GcpCredentials
+
+/**
+ * Credentials created from an exported file contents.
+ */
+class ExportedKeyGcpCredentialsText(val json: String): GcpCredentials

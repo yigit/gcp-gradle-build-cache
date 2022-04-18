@@ -154,6 +154,13 @@ internal class GcpStorageService(
 
                     GoogleCredentials.fromStream(path.inputStream()).createScoped(scopes)
                 }
+                is ExportedKeyGcpCredentialsText -> {
+                    GoogleCredentials.fromStream(
+                        gcpCredentials.json.byteInputStream(
+                            Charsets.UTF_8
+                        )
+                    ).createScoped(scopes)
+                }
             }
         }
     }
